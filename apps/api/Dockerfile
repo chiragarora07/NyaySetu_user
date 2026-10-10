@@ -3,7 +3,7 @@ FROM node:22-bookworm-slim AS build
 WORKDIR /app
 COPY package.json package-lock.json* ./
 COPY apps/api/package.json apps/api/package.json
-RUN --mount=type=cache,id=npm-cache,target=/root/.npm npm install --workspace apps/api --include-workspace-root
+RUN npm install
 COPY apps/api apps/api
 COPY eval eval
 COPY data data
